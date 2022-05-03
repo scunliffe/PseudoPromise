@@ -51,6 +51,7 @@ swear.addMethod('baz', doBaz);
 
 //start the batch of functions...
 swear.start(1, successHandler, errorHandler);
-//setting the minCompletedCount to 1 will execute the successHandler when the first (e.g. any) function completes successfully
+//setting the minCompletedCount to 1 will execute the successHandler
+//when the first (e.g. any) function completes successfully
 
 ```
