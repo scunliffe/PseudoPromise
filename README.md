@@ -19,3 +19,38 @@ Current Features
  - Ability to "complete" after (1, 2,... N) successful function completions
  - Ability to store arbitrary data in the instance
  - Bails out on first error
+
+API:
+======
+```
+// Initialize...
+var x = new PseudoPromise();
+
+// Methods:
+// Add a function
+PseudoPromiseInstance.addMethod('functionID', functionReference);
+
+// Indicate when a asynchronous function has completed (success or error)
+PseudoPromiseInstance.markComplete(functionID, wasSuccessful);
+
+// Start the batch of functions...
+PseudoPromiseInstance.start(minCompletedCount, successHandler, errorHandler);
+```
+
+Usage:
+======
+
+```
+// Initialize...
+var swear = new PseudoPromise();
+
+// Add functions...
+swear.addMethod('foo', doFoo);
+swear.addMethod('bar', doBar);
+swear.addMethod('baz', doBaz);
+
+//start the batch of functions...
+swear.start(1, successHandler, errorHandler);
+//setting the minCompletedCount to 1 will execute the successHandler when the first (e.g. any) function completes successfully
+
+```
